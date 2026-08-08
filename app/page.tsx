@@ -1,6 +1,10 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function Home() {
   const [l, setL] = useState('de');
@@ -23,6 +27,10 @@ export default function Home() {
           <button onClick={() => setL('en')} style={{ background: l === 'en' ? 'black' : '#eee', color: l === 'en' ? 'white' : '#888', padding: '5px 15px', borderRadius: '20px', marginRight: '10px', fontWeight: 'bold', border:'none', cursor:'pointer' }}>EN</button>
           <button onClick={() => setL('de')} style={{ background: l === 'de' ? 'black' : '#eee', color: l === 'de' ? 'white' : '#888', padding: '5px 15px', borderRadius: '20px', marginRight: '30px', fontWeight: 'bold', border:'none', cursor:'pointer' }}>DE</button>
           <button onClick={() => setN(true)} style={{ background: 'transparent', border: 'none', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px', color:'#555' }}>Menü ☰</button>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px', marginBottom: '120px' }}>
+        <div style={{ width: '700px', height: '700px', borderRadius: '50%', background: 'linear-gradient(135deg, #00E5FF, #0088FF, #AA00FF)', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}>
         </div>
       </div>
     </div>
