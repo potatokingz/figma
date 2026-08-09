@@ -54,6 +54,26 @@ export default function Home() {
           </Swiper>
         </div>
       </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 40px' }}>
+        <Swiper modules={[Pagination]} pagination={{ clickable: true }} spaceBetween={50} slidesPerView={1} grabCursor={true}>
+          <SwiperSlide>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '60px', paddingBottom: '50px' }}>
+              <div style={{ width: '320px', height: '320px', borderRadius: '50%', borderTop: '4px solid red', borderLeft: '4px solid red', padding: '10px', margin: '0 auto' }}>
+                <img src="https://i.ibb.co/DHTJ1gMR/lieferheld-png.png" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
+              </div>
+              <div style={{ flex: '1 1 400px' }}>
+                <h2 style={{ color: '#00E5FF', fontSize: '40px', fontWeight: '900', margin: 0 }}>Referenzen</h2>
+                <h3 style={{ fontSize: '30px', fontWeight: 'bold', margin: '10px 0' }}>Lieferheld</h3>
+                <p style={{ color: '#555', fontSize: '15px', lineHeight: '1.8' }}>Seit drei Jahren sind wir für Lieferheld tätig und übernehmen Aufgaben in Front- und Backend.</p>
+                <br/>
+                <b style={{ fontSize: '15px' }}>Technologien:</b><br/>
+                <span style={{ color: '#888', fontSize: '15px' }}>Backend: python, node.js</span><br/><br/>
+                <a href="#" style={{ color: '#5B21B6', fontWeight: 'bold', textDecoration: 'none' }}>Projekt ansehen →</a>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 }
