@@ -12,6 +12,22 @@ export default function Home() {
   const [mx, setMx] = useState(0);
   const [my, setMy] = useState(0);
   const [h, setH] = useState(false);
+  const scr = useRef<any>(null);
+  useEffect(() => {
+    if (scr.current) {
+      const w = (e: any) => {
+        if (scr.current.scrollWidth > scr.current.clientWidth) {
+          const left = scr.current.scrollLeft === 0;
+          const right = Math.ceil(scr.current.scrollLeft + scr.current.clientWidth) >= scr.current.scrollWidth;
+          if ((e.deltaY < 0 && left) || (e.deltaY > 0 && right)) return;
+          e.preventDefault();
+          scr.current.scrollLeft += e.deltaY;
+        }
+      };
+      scr.current.addEventListener('wheel', w, { passive: false });
+      return () => { if(scr.current) scr.current.removeEventListener('wheel', w); };
+    }
+  }, []);
   return (
     <div style={{ background: '#F8F9FA', minHeight: '100vh', overflowX: 'hidden', color: '#1D1D1B', fontFamily: 'sans-serif' }}>
       {h && (
@@ -73,6 +89,22 @@ export default function Home() {
             </div>
           </SwiperSlide>
         </Swiper>
+      </div>
+      <div style={{ background: '#4C1D95', color: 'white', padding: '120px 40px', overflow: 'hidden' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '60px' }}>
+          <div style={{ width: '400px', flexShrink: 0 }}>
+            <h2 style={{ color: '#00E5FF', fontSize: '50px', fontWeight: '900', lineHeight: '1.1' }}>Zu wenig<br/>Time-to-Market?</h2>
+            <br/>
+            <b style={{ fontSize: '20px' }}>Wir haben die Talente für Ihre Sprints.</b>
+            <br/><br/>
+          </div>
+          <div ref={scr} style={{ display: 'flex', gap: '60px', overflowX: 'auto', paddingBottom: '20px', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div style={{ width: '300px', flexShrink: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '30px' }}><div style={{ width: '60px', height: '60px', border: '2px solid white', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '30px', marginRight: '20px' }}>📱</div><h3 style={{ fontSize: '24px', fontWeight: 'bold', margin: 0 }}>Mobile Apps</h3></div>
+              <p style={{ opacity: 0.8, lineHeight: '2.2', fontSize: '15px' }}>iOS<br/>Android<br/>Adobe PhoneGap<br/>Unity 3D</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
