@@ -106,6 +106,15 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div style={{ padding: '120px 40px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+        <h2 style={{ color: '#00E5FF', fontSize: '50px', fontWeight: '900' }}>Für innovative Software<br/>tun wir alles.</h2>
+        <br/><br/>
+        <svg width="600" height="100" style={{ maxWidth: '100%' }}>
+          <rect x="0" y="40" width="600" height="15" fill="#E5E7EB" rx="7" />
+          <line x1="0" y1="47" x2="250" y2="47" stroke="#5B21B6" strokeWidth="15" strokeLinecap="round" />
+          <circle cx="250" cy="47" r="20" fill="#00E5FF" />
+        </svg>
+      </div>
     </div>
   );
 }
