@@ -13,6 +13,7 @@ export default function Home() {
   const [my, setMy] = useState(0);
   const [h, setH] = useState(false);
   const scr = useRef<any>(null);
+  const [tm, setTm] = useState(0);
   useEffect(() => {
     if (scr.current) {
       const w = (e: any) => {
@@ -114,6 +115,16 @@ export default function Home() {
           <line x1="0" y1="47" x2="250" y2="47" stroke="#5B21B6" strokeWidth="15" strokeLinecap="round" />
           <circle cx="250" cy="47" r="20" fill="#00E5FF" />
         </svg>
+      </div>
+      <div style={{ padding: '100px 40px', maxWidth: '1000px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
+          <div onClick={() => setTm(1)} style={{ flex: '1 1 300px', border: '1px solid #ddd', borderRadius: '10px', overflow: 'hidden', cursor: 'pointer', transition: '0.3s' }}>
+            <div style={{ background: tm === 1 ? '#00E5FF' : '#fff', padding: '30px', textAlign: 'center' }}>
+              <h3 style={{ margin: 0, color: tm === 1 ? 'white' : '#1D1D1B', fontSize: '28px', fontWeight: '900' }}>Georgi Stoev</h3>
+            </div>
+            {tm === 1 && <div style={{ padding: '30px', fontSize: '15px', lineHeight: '1.8', background: 'white', color: '#555' }}>Die meiste Zeit seines Lebens studierte und arbeitete Georgi Stoev in Deutschland.</div>}
+          </div>
+        </div>
       </div>
     </div>
   );
