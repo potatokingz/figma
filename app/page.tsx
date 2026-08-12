@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useForm } from 'react-hook-form';
 
 export default function Home() {
   const [l, setL] = useState('de');
@@ -14,6 +15,7 @@ export default function Home() {
   const [h, setH] = useState(false);
   const scr = useRef<any>(null);
   const [tm, setTm] = useState(0);
+  const { register, handleSubmit } = useForm();
   useEffect(() => {
     if (scr.current) {
       const w = (e: any) => {
@@ -124,6 +126,16 @@ export default function Home() {
             </div>
             {tm === 1 && <div style={{ padding: '30px', fontSize: '15px', lineHeight: '1.8', background: 'white', color: '#555' }}>Die meiste Zeit seines Lebens studierte und arbeitete Georgi Stoev in Deutschland.</div>}
           </div>
+        </div>
+      </div>
+      <div style={{ padding: '120px 40px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '500px', background: 'linear-gradient(to bottom right, #0088FF, #AA00FF)', borderRadius: '0 0 50% 50%', zIndex: 1 }}></div>
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: '700px', margin: '0 auto', background: 'white', padding: '60px', borderRadius: '20px', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
+          <h2 style={{ fontSize: '50px', fontWeight: '900', marginBottom: '40px', color: '#1D1D1B' }}>Sag Hallo!</h2>
+          <form onSubmit={handleSubmit((d) => alert(JSON.stringify(d)))}>
+            <input {...register('email')} placeholder="E-Mail" style={{ width: '100%', padding: '20px', marginBottom: '20px', border: '2px solid #eee', borderRadius: '8px', fontSize: '16px', outline: 'none' }} />
+            <button type="submit" style={{ background: '#00E5FF', color: 'white', padding: '20px 40px', border: 'none', borderRadius: '8px', fontWeight: '900', fontSize: '18px', cursor: 'pointer', width: '100%' }}>Nachricht senden</button>
+          </form>
         </div>
       </div>
     </div>
